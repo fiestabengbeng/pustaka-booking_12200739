@@ -19,7 +19,7 @@ class PenggunaSeeder extends Seeder
                 'password'  => md5('23456')
             ],
             [
-                'nama'      => 'marketing',
+                'nama'      => '12200739',
                 'password'  => md5('Eka Devien Prassetyo')
             ]
         ];
