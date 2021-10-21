@@ -33,9 +33,16 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/hello', 'Selamatdatang::hal_awal');
-$routes->get('/login', 'Selamatdatang::beranda_login');
 $routes->post('/login', 'Login::cekLogin');
 $routes->get('/daftar-member', 'Selamatdatang::daftar_member');
+$routes->get('/beranda', 'Selamatdatang::hal_beranda', ['filter'=>'auth']);
+
+$routes->get('/login', 'Selamatdatang::beranda_login', ['filter'=>'autoin']);
+$routes->get('/logout', function(){
+    Services::session()->destroy();
+    return redirect()->to('/login');
+});
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
